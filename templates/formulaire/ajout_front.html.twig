@@ -1,0 +1,30 @@
+{% extends 'front_base.html.twig' %}
+
+{% block title %}ajout formulaire!{% endblock %}
+
+{% block body %}
+    {{ form_start(formf,{'attr':{'novalidate':'novalidate'}}) }}
+    <center><h1>ajout formulaire</h1></center>
+    {{ form_label(formf.ref,"ref") }}
+    {{ form_widget(formf.ref) }}
+    {{ form_label(formf.cin,"cin") }}
+    {{ form_widget(formf.cin) }}
+    {{ form_label(formf.quest1,"ton age") }}
+    {{ form_widget(formf.quest1) }}
+    {{ form_label(formf.quest2,"tes problemes ") }}
+    {{ form_widget(formf.quest2) }}
+    {{ form_label(formf.quest3,"des interventions chirugicales") }}
+    {{ form_widget(formf.quest3) }}
+    {{ form_label(formf.quest4,"besoins?") }}
+    {{ form_widget(formf.quest4) }}
+    {{ form_label(formf.quest5,"marque preferé") }}
+    {{ form_widget(formf.quest5) }}
+    {{ form_label(formf.quest6,"pays") }}
+    {{ form_widget(formf.quest6) }}
+    {{ form_label(formf.type,"type") }}
+    {{ form_widget(formf.type) }}
+    {{ form_label(formf.FormCateg,"form_categ") }}
+    {{ form_widget(formf.FormCateg,{value: idcat})}}
+    {{ form_end(formf) }}
+
+{% endblock %}

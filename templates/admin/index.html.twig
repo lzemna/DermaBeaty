@@ -1,0 +1,46 @@
+
+{% extends "back_base.html.twig" %}
+{% block title %}Admin. | {{ parent() }}{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+    <h1>Liste des utilisateurs</h1>
+
+    <div class="card-body">
+        <div class="table-responsive">
+
+            <table class="table table-bordered"  width="100%" cellspacing="0">
+
+                <thead>
+                <br>
+
+                <th>cin</th>
+                <th>nom</th>
+                <th>email</th>
+                <th>role</th>
+                <th>actions</th>
+
+                </thead>
+                <tbody {% for user in users %} >
+
+                <tr>
+                    <td>{{ user.cin }}</td>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.roles[0] }}</td>
+                    <td> <a href="{{ path ('supprimerU' ,{'id':user.id}) }}"><i class="btn btn-danger btn-circle">delete</i></a></td>
+                </tr>
+
+
+                </tbody {% endfor %}>
+            </table>
+
+
+        </div>
+    </div>
+
+{% endblock %}
