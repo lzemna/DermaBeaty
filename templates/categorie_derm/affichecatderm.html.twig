@@ -1,0 +1,37 @@
+
+{% extends 'back_base.html.twig' %}
+{% block title %}afficher categories Dermatologues {% endblock %}
+
+{% block body %}
+    <h1>Liste des Catégories des Dermatologues </h1>
+    <div class="card-body">
+    <div class="table-responsive">
+    <table border="2" class="table table-bordered"  width="100%" cellspacing="0">
+        <thead>
+        <th>Reference </th>
+        <th>Localisation</th>
+        <th>Nom Categorie</th>
+       {#  <th>Update </th>
+        <th>Delete</th>
+       #}
+        </thead>
+        {% for d in dermatologuecat %}
+            <tbody>
+
+            <td>{{ d.ref }}</td>
+            <td>{{ d.localisation }}</td>
+            <td>{{ d.nomCat }}</td>
+            <td> <a href="  {{path('updatedermcat',{'ref':d.ref}) }}" class="btn btn-warning btn-circle"><i class="fas fa-exclamation-triangle"></i></a>
+                 <a href="  {{path('dermcat',{'ref':d.ref}) }}" class="btn btn-danger btn-circle" ><i class="fas fa-trash"></i></a>
+            </td>
+            </tbody>
+        {% endfor %}
+    </table>
+    <button class="rounded-circle border-0" id="sidebarToggle">
+        <a class="nav-link" href="{{ path('ajoutdermcat') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>ajouter une categorie </span></a>
+    </button>
+    </div>
+    </div>
+{% endblock %}

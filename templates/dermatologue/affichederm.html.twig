@@ -1,0 +1,51 @@
+
+{% extends 'back_base.html.twig' %}
+{% block title %} afficher dermatologue {% endblock %}
+
+{% block body %}
+    <h1>Liste des Dermatologues </h1>
+    <div class="card-body">
+    <div class="table-responsive">
+    <table border="2" class="table table-bordered"  width="100%" cellspacing="0">
+        <thead>
+        <th>Cin</th>
+        <th>Diplome</th>
+        <th>Formation</th>
+        <th>Langue</th>
+        <th>Horaire</th>
+        <th>Mode De reglement</th>
+        <th>Assurance Maladie</th>
+        <th>Image</th>
+
+       {# <th> Update </th>
+          <th>Delete</th>
+       #}
+
+        </thead>
+        {% for d in dermatologues %}
+            <tbody>
+
+            <td>{{ d.cin }}</td>
+            <td>{{ d.diplome }}</td>
+            <td>{{ d.formation }}</td>
+            <td>{{ d.langue }}</td>
+            <td>{{ d.horaire }}</td>
+            <td>{{ d.modereglement}}</td>
+            <td>{{ d.assurancemaladie }}</td>
+            <td><img src="{{ asset('/back/img/'~d.image) }}" alt="" style="width: 400px ; height:auto ">
+            </td>
+
+            <td> <a href="  {{path('updatederm',{'cin':d.cin}) }}" class="btn btn-warning btn-circle"><i class="fas fa-exclamation-triangle"></i></a>
+                 <a href="  {{path('derm',{'cin':d.cin}) }}" class="btn btn-danger btn-circle" ><i class="fas fa-trash"></i></a>
+            </td>
+            </tbody>
+        {% endfor %}
+    </table>
+    <button class="rounded-circle border-0" id="sidebarToggle">
+        <a class="nav-link" href="{{ path('ajoutderm') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>ajouter un dermatologue </span></a>
+    </button>
+    </div>
+    </div>
+{% endblock %}
