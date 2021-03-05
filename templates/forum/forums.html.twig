@@ -1,0 +1,37 @@
+{% for f in forum %}
+
+<div class="newsletter">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-8">
+                <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+                    <a href="{{ path('forum_show',{id: f.id}) }}"><h6>{{ f.titre }}</h6></a>
+                    <p>{{ f.creationDate |date("Y M D") }}</p>
+                    {% if app.user and app.user.id == f.user.id %}
+                        <a href="{{ path('delete_forum',{id:f.id}) }}" class="button_sujet">supprimer</a>
+                        <a href="{{ path('edit_forum',{id:f.id}) }}" class="button_sujet">editer</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+
+                    <button class="button_sujet">{{ f.sujet.nom }}</button>
+
+                </div>
+            </div>
+
+            <div class="col-lg-1">
+                <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+                    <a href="#">
+                        <div class="benefit_icon"><i class="fa fa-comment-o" aria-hidden="true"></i></div>
+                        <span id="" class="">{{ f.replies | length }}</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endfor %}

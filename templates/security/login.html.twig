@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('plugins/themify-icons/themify-icons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/contact_styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/contact_responsive.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="container contact_container">
+        <div class="">
+            <div class="get_in_touch_contents">
+                <h1>login !</h1>
+                <p>veuiller s'authentifier</p>
+                <form action="{{ path('connection_login') }}" method="post">
+                    <div>
+                        <input id="input_name" class="form_input input_name input_ph" type="text" name="_username" placeholder="username..." required="required" >
+                        <input id="input_email" class="form_input input_email input_ph" type="password" name="_password" placeholder="password..." required="required" data-error="Valid email is required.">
+
+                    </div>
+                    <div>
+                        <button id="review_submit" type="submit" class="red_button message_submit_btn trans_300" value="Submit">connection !</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+
+{%  endblock%}
+{% block javascripts %}
+    <script src="{{ asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.js') }}"></script>
+    <script src="{{ asset('js/contact_custom.js') }}"></script>
+{% endblock %}

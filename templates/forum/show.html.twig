@@ -1,0 +1,232 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('plugins/themify-icons/themify-icons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/contact_styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/contact_responsive.css') }}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <style>
+        .button_sujet {
+            background-color: #ddd;
+            border: none;
+            color: black;
+
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 2px;
+            cursor: pointer;
+
+            font-family: inherit;
+
+            font-size: 10px;
+            height: 18px;
+            padding: 0 5px;
+            font-weight: 400;
+            line-height: 18px;
+            border-radius: 3px;
+        }
+
+        .button_sujet:hover {
+            background-color: #f1f1f1;
+        }
+        .button_delete_rep {
+            background-color: red;
+            border: none;
+            color: black;
+
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 2px;
+            cursor: pointer;
+
+            font-family: inherit;
+
+            font-size: 10px;
+            height: 18px;
+            padding: 0 5px;
+            font-weight: 400;
+            line-height: 18px;
+            border-radius: 3px;
+        }
+
+        .button_delete_rep:hover {
+            background-color: #f1f1f1;
+        }
+        .button_edit_rep {
+            background-color: green;
+            border: none;
+            color: black;
+
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 2px;
+            cursor: pointer;
+
+            font-family: inherit;
+
+            font-size: 10px;
+            height: 18px;
+            padding: 0 5px;
+            font-weight: 400;
+            line-height: 18px;
+            border-radius: 3px;
+        }
+
+        .button_edit_rep:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+
+    <div class="container contact_container">
+
+            <div class="row">
+
+                <div class="col-lg-8">
+                    <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start  ">
+                        <h4>{{ forum.titre }}</h4>
+                        <p> {{ forum.user.username }} ecrit le {{ forum.creationDate |date("Y M D") }}</p>
+                        <div>{{ forum.blog }}</div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+
+                        <button class="button_sujet">{{ forum.sujet.nom }}</button>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+    </div>
+    <div class="container contact_container">
+        <h4> {{ forum.replies | length}} reponses </h4>
+    </div>
+    {% for r in forum.replies %}
+        <div class="container contact_container">
+
+            <div class="row">
+
+                <div class="col-lg-8">
+                    <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start  ">
+                        <h4>{{ r.user.username }}</h4>
+                        <p>  ecrit le {{ r.creationDate |date("Y M D") }}
+                        {% if app.user and r.user.id == app.user.id %}
+                            <a class="button_delete_rep" href="{{ path('deleteRep',{id:r.id}) }}">supprimer  </a>
+                            <a class="button_edit_rep" href="">editer  </a>
+                        {% endif %}
+                        </p>
+                        <div>{{ forum.blog }}</div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-1">
+                    <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+                        <a href="#">
+                            <div class="benefit_icon"><i class="far fa-thumbs-down" aria-hidden="true"></i></div>
+
+                        </a>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-1">
+                    <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+                        <a href="{{ path('like_reply',{id:r.id})}}" class="js-like">
+                            {% if app.user and r.isLikedByUser(app.user) %}
+
+                            <div class="benefit_icon"><i class="fa fa-thumbs-up" aria-hidden="true"></i></div>
+                            {% else %}
+                                <div class="benefit_icon"><i class="far fa-thumbs-up" aria-hidden="true"></i></div>
+                                {% endif %}
+                            <span id="" class="js-likes">{{ r.replyLikes | length }}</span>
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+    {% endfor %}
+    {% if app.user %}
+    <div class="container contact_container">
+        <div class="">
+            <div class="get_in_touch_contents">
+                <h5>repondre</h5>
+
+                {{ form_start(form) }}
+                <div>
+                    {{ form_row(form.content, {'id':'input_name','attr': {'class': 'form_input input_name input_ph','placeholder':'nom d\'utilisateur...'}}) }}
+
+                </div>
+                <div>
+                    <button id="review_submit" type="submit" class="red_button message_submit_btn trans_300" value="Submit">repondre !</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+
+
+
+    </div>
+    {% endif %}
+
+{%  endblock%}
+{% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+   function onClickBtnLike(event){
+       event.preventDefault();
+       const url = this.href;
+       const span = this.querySelector('span.js-likes')
+    const icone = this.querySelector('i');
+      axios.get(url).then(function (response){
+          const likes = response.data.nblikes;
+          span.textContent =likes
+          if(icone.classList.contains('far')){
+            icone.classList.replace('far','fa')
+          }
+          else{
+              icone.classList.replace('fa','far')
+          }
+
+      }).catch(function (error){
+          if(error.response.status === 403){
+              window.alert("vous n'etes pas connecte pour reagir a un une reponse")
+          }
+      });
+
+
+
+   }
+    document.querySelectorAll('a.js-like').forEach(function (link){
+
+            link.addEventListener('click',onClickBtnLike);
+
+
+    })
+
+
+</script>
+    <script src="{{ asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.js') }}"></script>
+    <script src="{{ asset('js/contact_custom.js') }}"></script>
+{% endblock %}
