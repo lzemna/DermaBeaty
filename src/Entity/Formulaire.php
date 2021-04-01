@@ -14,8 +14,8 @@ class Formulaire
 
     /**
      * @ORM\Id
-     * @Assert\Positive(message="ce champs doit etre positive")
-     * @Assert\NotBlank(message="ce champs est obligatoire")
+     * @ORM\GeneratedValue
+     *
      * @ORM\Column(type="integer")
      */
     private $ref;
@@ -72,10 +72,20 @@ class Formulaire
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity=FormCateg::class, inversedBy="formulaire")
+     * @ORM\ManyToOne(targetEntity=FormCateg::class, inversedBy="formulaire" , cascade="remove")
      * @ORM\JoinColumn(nullable=false ,name="FormCateg", referencedColumnName="id_cat")
      */
     private $FormCateg;
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $captcha = [];
+
+
+
+
+
 
 
 
@@ -88,12 +98,6 @@ class Formulaire
         return $this->ref;
     }
 
-    public function setRef(int $ref): self
-    {
-        $this->ref = $ref;
-
-        return $this;
-    }
 
     public function getCin(): ?int
     {
@@ -203,6 +207,19 @@ class Formulaire
         return $this;
     }
 
+    public function getCaptcha(): ?array
+    {
+        return $this->captcha;
+    }
+
+    public function setCaptcha(array $captcha): self
+    {
+        $this->captcha = $captcha;
+
+        return $this;
+    }
+
+  
 
 
 }

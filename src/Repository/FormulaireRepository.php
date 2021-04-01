@@ -47,4 +47,36 @@ class FormulaireRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function listOrderBycin()
+    {
+        return $this->createQueryBuilder('k')
+            ->orderBy('k.cin','ASC')
+            ->getQuery()->getResult();
+
+
+    }
+    public function rechercher($cin)
+    {
+        return $this->createQueryBuilder('l')
+            ->where('l.cin Like :cin')
+            ->setParameter('cin','%'.$cin.'%')
+            ->getQuery()
+            ->execute();
+    }
+    public function getPaginateform($page,$limit){
+        $query=$this->createQueryBuilder('f')
+            ->orderBy('f.ref')
+            ->setFirstResult(($page*$limit)-$limit)
+            ->setMaxResults($limit);
+        return $query->getQuery()
+            ->getResult();
+
+    }
+    public function getTotalform()
+    {
+        $query=$this->createQueryBuilder('f')
+            ->select('COUNT(f)');
+        return $query->getQuery()
+            ->getSingleScalarResult();
+    }
 }

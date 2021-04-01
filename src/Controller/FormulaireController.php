@@ -16,6 +16,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 class FormulaireController extends AbstractController
@@ -23,9 +25,21 @@ class FormulaireController extends AbstractController
     /**
      * @Route("/affichF", name="affichF")
      */
-    public function list()
+    public function list(Request $request,FormulaireRepository $repository)
+    {   $limit=10;
+        $page=(int)$request->query->get("page",1);
+        $forms = $repository->getPaginateform($page,$limit);
+        $total=$repository->getTotalform();
+
+        return $this->render('formulaire/list.html.twig',compact('forms','total','limit','page'));
+
+    }
+    /**
+     * @Route("/trier", name="trierparcin")
+     */
+    public function listpartriecin()
     {
-        $forms = $this->getDoctrine()->getRepository(Formulaire::class)->findAll();
+        $forms = $this->getDoctrine()->getRepository(Formulaire::class)->listOrderBycin();
 
         return $this->render('formulaire/list.html.twig', [
             "forms" => $forms,]);
@@ -40,17 +54,24 @@ class FormulaireController extends AbstractController
     {   /* $cat->setIdCat($idcat);
         $form1->setFormCateg($cat);*/
         $form1 = new Formulaire();
+
         $form = $this->createForm( FormulaireType::class, $form1);
         $form->add('ajouter', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'The form is valid.');
             $em = $this->getDoctrine()->getManager();
             $em->persist($form1);
             $em->flush();
             return $this->redirectToRoute('affichFCf');
+
+        }
+        else
+        {
+            $this->addFlash('error', 'The form is invalid.');
         }
         return $this->render('formulaire/ajout_front.html.twig', [
-            'formf' => $form->createView(),
+            'form' => $form->createView(),
             'idcat' => $idcat
         ]);
     }
@@ -109,4 +130,53 @@ class FormulaireController extends AbstractController
             'f' => $form->createView()
         ]);
     }
+    /**
+         * @route ("formulaire/pdf/{ref}", name="PDF")
+     */
+    function generePDF(FormulaireRepository $repository,$ref)
+    {
+        // Configure Dompdf according to your needs
+
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+
+        $form = $repository->find($ref);
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('pdf/pdf.html.twig', [
+            'form' => $form
+        ]);
+        //$html .= '';
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'landscape');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("formulaire.pdf", [
+            "Attachment" => true
+        ]);
+    }
+    /**
+     * @Route("/recherche", name="recherche")
+     */
+    public function searchcin(Request $request)
+    {
+
+        $data = $request->request->get('search');
+
+        $forms= $this->getDoctrine()->getRepository(Formulaire::class)->rechercher($data);
+
+        return $this->render('formulaire/affich_back_rech.html.twig', [
+            'forms' => $forms,
+        ]);
+    }
+
 }

@@ -47,4 +47,20 @@ class ConseilRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function listOrderBydate()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.date_limite','ASC')
+            ->getQuery()->getResult();
+
+
+    }
+    public function rechercher_ref($reference)
+    {
+        return $this->createQueryBuilder('s')
+            ->where('s.reference Like :reference')
+            ->setParameter('reference','%'.$reference.'%')
+            ->getQuery()
+            ->execute();
+    }
 }

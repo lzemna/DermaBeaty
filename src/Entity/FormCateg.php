@@ -26,7 +26,7 @@ class FormCateg
     /**
      * @Assert\Length (min=3,minMessage="ce champs doit avoire une chaine de caractere de taille supperieur a 2")
      * @Assert\NotBlank(message="le nom est obligatoire")
-     * @Assert\Regex(pattern="/^[a-z]+$/i", message="ce champs n'accepte pas les entiers")
+     *
      * @ORM\Column(type="string", length=255)
      *
      *
@@ -41,7 +41,7 @@ class FormCateg
     private $type;
 
     /**
-     * @ORM\OneToMany(targetEntity=Formulaire::class, mappedBy="FormCateg")
+     * @ORM\OneToMany(targetEntity=Formulaire::class, mappedBy="FormCateg", cascade="remove")
      */
     private $formulaire;
 

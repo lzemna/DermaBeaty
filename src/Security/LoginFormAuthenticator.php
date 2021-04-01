@@ -4,7 +4,6 @@ namespace App\Security;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bridge\Doctrine\Security\User\EntityUserProvider;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -91,17 +90,17 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         return $credentials['password'];
     }
 
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
+    public function onAuthenticationSuccess(Request $request, TokenInterface $token,  $providerKey)
     {
         $roles = $token->getUser()->getRoles();
-        
+
 
         if (in_array('ROLE_ADMIN', $roles, true)) {
             // c'est un aministrateur : on le rediriger vers l'espace admin
             $redirection = new RedirectResponse($this->urlGenerator->generate('admin'));
         } else {
             // c'est un utilisaeur lambda : on le rediriger vers l'accueil
-            $redirection = new RedirectResponse($this->urlGenerator->generate('affichFCf'));
+            $redirection = new RedirectResponse($this->urlGenerator->generate('dermatologuesfront'));
         }
 
         return $redirection;
