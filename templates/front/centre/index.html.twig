@@ -1,0 +1,171 @@
+{% extends 'front_base.html.twig' %}
+
+{% block title %}Centre index{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+<link rel="stylesheet" href="{{ asset('front/plugins/themify-icons/themify-icons.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('front/styles/single_styles.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('front/styles/single_responsive.css') }}">
+
+<div class="container ">
+    <div class="row">
+        <div class="col">
+
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>Centre</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="jumbotron">
+    <div class="js-filter">
+        {{ form_start(form , {attr : {class: 'filter js-filter-form'}} ) }}
+        <h4>Recherche</h4>
+        {{ form_row(form.q) }}
+        <h4>Categories</h4>
+        {{ form_row(form.categories) }}
+        <button type="submit" class="btn btn-primary">rechercher</button>
+        {{ form_end(form) }}
+
+
+
+
+        <div class="js-filter-content">
+            {% include 'front/centre/_centres.html.twig'%}
+
+        </div>
+
+</div>
+</div>
+    {% endblock %}
+
+    {% block javascripts %}
+        <script>
+            async function onLikeCentre(event){
+
+                event.preventDefault()
+                //console.log('ya mdakkkk')
+                const url = this.getAttribute('href')
+                const nbLIkes = this.querySelector('.nblikes')
+                const i = this.querySelector('#btn')
+                return Cnlike(url,nbLIkes,i)
+
+            }
+            async function Cnlike(url,nb,btnlike){
+
+                const response = await fetch(url,{
+                    method: 'GET',
+                    headers:{
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+
+                        'X-Requested-With': 'XMLHttpRequest'
+
+
+                    }
+
+
+
+                })
+                const data =await response.json();
+                nb.innerHTML = data.nblikes
+                if(btnlike.classList.contains('far')){
+                    console.log('far')
+                    btnlike.classList.replace('far','fa')
+
+
+                }else {
+                    console.log('fa')
+
+                    btnlike.classList.replace('fa','far')
+
+
+
+                }
+                //console.log(data)
+
+
+            }
+            document.querySelectorAll('.js-centre-like').forEach(function (btn){
+
+                btn.addEventListener('click',onLikeCentre)
+
+
+            })
+
+
+
+
+        </script>
+        <script>
+
+
+           class Filter {
+
+                constructor(element) {
+                    if (element === null) {
+                        return
+                    }
+                    this.content = element.querySelector('.js-filter-content')
+                    this.form = element.querySelector('.js-filter-form')
+                    this.bindEvents()
+
+                }
+
+
+                bindEvents() {
+                    this.form.querySelectorAll('input').forEach(input => {
+                        input.addEventListener('change' , this.loadForm.bind(this))
+                    })
+                }
+
+
+
+                async loadForm() {
+                    const data = new FormData(this.form)
+                    const url = new URL(this.form.getAttribute('action') || window.location.href)
+                    const params = new  URLSearchParams()
+                    data.forEach( (value, key) => {
+                        params.append(key, value)
+                    })
+                    return this.loadUrl(url.pathname + '?' + params.toString())
+                }
+
+                async loadUrl (url){
+                    const response = await fetch(url ,{
+                        headers: {
+                            'X-Requested-With':'XMLHttpRequest'
+                        }
+                    })
+                    if (response.status >= 200 && response.status < 300) {
+
+
+                        const data = await response.json()
+
+                        this.content.innerHTML = data.content
+                        history.replaceState({},'',url)
+                    } else {
+                        console.error(response);
+                    }
+                }
+            }
+
+
+           const filter = new Filter(document.querySelector('.js-filter'))
+
+
+        </script>
+
+
+
+
+
+    {% endblock %}
+
