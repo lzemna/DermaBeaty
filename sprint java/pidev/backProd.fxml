@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="954.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.backProdController">
+   <children>
+      <HBox layoutY="13.0" prefHeight="150.0" prefWidth="907.0">
+         <children>
+            <ImageView fx:id="img" fitHeight="152.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="reflabel" prefHeight="150.0" prefWidth="66.0" text="Label">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
+            <Label fx:id="nomlabel" prefHeight="150.0" prefWidth="80.0" text="Label">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="typelabel" prefHeight="150.0" prefWidth="79.0" text="Label">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="marquelabel" prefHeight="150.0" prefWidth="78.0" text="Label" />
+            <Label fx:id="prixlabel" prefHeight="150.0" prefWidth="67.0" text="Label" />
+            <Label fx:id="quanitelabel" prefHeight="150.0" prefWidth="80.0" text="Label" />
+            <Label fx:id="desclabel" prefHeight="150.0" prefWidth="87.0" text="Label" />
+            <Label fx:id="catlabel" prefHeight="150.0" prefWidth="67.0" text="Label" />
+            <Button mnemonicParsing="false" onMousePressed="#suppprod" prefHeight="47.0" prefWidth="55.0">
+               <HBox.margin>
+                  <Insets top="60.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="34.0" onMouseClicked="#suppprod" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onMousePressed="#editprod" prefHeight="48.0" prefWidth="62.0">
+               <HBox.margin>
+                  <Insets left="10.0" top="60.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="38.0" onMouseClicked="#editprod" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,67 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 8 avr. 2021, 19:50:04
+    Author     : DELL
+*/
+.prod_id:hover{
+  -fx-border-color: #fe4c50; 
+  -fx-border-width: 0px 0px 3px 0px; 
+    
+}
+.prod_id{
+  -fx-border-color: -fx-primary; 
+   
+    
+}
+.product_item{
+    -fx-background-radius: 30px;
+    -fx-background-color: #fffff; 
+    
+    
+}
+.transparent{
+       -fx-background-color: rgba(0,0,0,0);
+    
+    
+    
+}
+.red_button{
+    -fx-background-color: #fe4c50; 
+   
+    
+    
+    
+    
+}
+.fruit-item{
+    -fx-background-color: #FFFFFF;
+        -fx-background-radius: 30;
+}
+
+
+
+
+
+.nav_bar:hover{
+  -fx-border-color: #fe4c50; 
+  -fx-border-width: 0px 0px 3px 0px; 
+    
+}
+.tab{
+    -fx-background-color: -fx-primary;
+    
+    
+}
+.tab-header-background{
+     -fx-background-color: -fx-primary;
+    
+    
+    
+    
+}
+
+

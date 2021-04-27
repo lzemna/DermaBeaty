@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.back_catController">
+   <children>
+      <HBox layoutX="9.0" layoutY="25.0" prefHeight="150.0" prefWidth="779.0">
+         <children>
+            <Label fx:id="reflabel" prefHeight="150.0" prefWidth="262.0" text="Label">
+               <padding>
+                  <Insets left="70.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin></Label>
+            <Label fx:id="nomlabel" prefHeight="150.0" prefWidth="208.0" text="Label">
+               <HBox.margin>
+                  <Insets left="70.0" />
+               </HBox.margin>
+            </Label>
+            <Button mnemonicParsing="false" onMousePressed="#suppcat" prefHeight="49.0" prefWidth="75.0">
+               <HBox.margin>
+                  <Insets left="67.0" right="20.0" top="55.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="41.0" onMouseClicked="#suppcat" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onMousePressed="#editcat" prefHeight="43.0" prefWidth="60.0">
+               <HBox.margin>
+                  <Insets right="30.0" top="55.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="43.0" onMouseClicked="#editcat" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

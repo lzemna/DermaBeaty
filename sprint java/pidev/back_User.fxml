@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.backUserController">
+   <children>
+      <VBox prefHeight="800.0" prefWidth="404.0" style="-fx-background-color: #ebe8f9;">
+         <children>
+            <ImageView fitHeight="122.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Img/150747832_761520978111248_5652594018623090496_n.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="130.0" right="12.0" top="50.0" />
+               </VBox.margin>
+            </ImageView>
+            <HBox prefHeight="54.0" prefWidth="404.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="356.0" text="BEAUTY" textFill="#1e1e27">
+                     <graphic>
+                        <Label prefHeight="30.0" prefWidth="200.0" text="DERMA" textFill="#fe4c50">
+                           <font>
+                              <Font name="Cambria Bold" size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets left="100.0" />
+                           </padding>
+                        </Label>
+                     </graphic>
+                     <font>
+                        <Font name="Cambria Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gouser" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9; -fx-border-color: #fffff; -fx-border-width: 0px;" text="Gestion Utilisateur ">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="100.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#goderm" prefHeight="53.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="Gestion Dermatologue">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#godermcat" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="Gestion Categorie Derm">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#goprod" prefHeight="55.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="Gestion Produits">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gocat" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="Gestions Categorie Prod">
+               <font>
+                  <Font name="Cambria" size="25.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="deconnection">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="44.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../fontAwesome%20icons/110912-font-awesome/png/sign-out-option.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gocatFormulaire" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="categorie formulaire">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#goFormulaire" prefHeight="53.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="formulaire">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#goConseil" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="conseils">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane layoutX="403.0" layoutY="-4.0" prefHeight="800.0" prefWidth="798.0">
+         <children>
+            <TableView fx:id="UsersTable" layoutX="2.0" layoutY="310.0" prefHeight="352.0" prefWidth="798.0">
+              <columns>
+                <TableColumn fx:id="CinCol" prefWidth="71.0" text="Cin" />
+                  <TableColumn fx:id="EmailCol" prefWidth="104.0" text="Email" />
+                  <TableColumn fx:id="RolesCol" prefWidth="84.0" text="Roles" />
+                  <TableColumn fx:id="PasswordCol" prefWidth="104.0" text="Passsword" />
+                  <TableColumn fx:id="NomCol" prefWidth="91.0" text="Nom " />
+                  <TableColumn fx:id="PrenomCol" prefWidth="81.0" text="Prenom" />
+                  <TableColumn fx:id="AdresseCol" prefWidth="74.0" text="Adresse" />
+                  <TableColumn fx:id="NumeroCol" minWidth="0.0" prefWidth="79.0" text="Numero" />
+                  <TableColumn fx:id="editCol" prefWidth="129.0" text="action" />
+              </columns>
+            </TableView>
+            <Pane layoutX="4.0" layoutY="196.0" prefHeight="3.0" prefWidth="798.0" style="-fx-background-color: #fe4c50;" />
+            <Text layoutX="14.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des Utilisateurs">
+               <font>
+                  <Font name="Cambria Bold Italic" size="24.0" />
+               </font>
+            </Text>
+            <Button layoutX="34.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#refreshTable" text="Refresh" />
+            <Button layoutX="116.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#getAddView" text="add" />
+            <Button layoutX="184.0" layoutY="238.0" mnemonicParsing="false" text="Trier" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

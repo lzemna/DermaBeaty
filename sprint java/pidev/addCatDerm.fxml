@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.AddCatDermController">
+   <children>
+      <HBox prefHeight="57.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Detail de Categorie Derm" wrappingWidth="330.61083984375">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <HBox prefHeight="44.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reference" />
+            <TextField fx:id="refFild" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="67.0" prefHeight="55.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Localisation" />
+            <TextField fx:id="localFild" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="122.0" prefHeight="55.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom_Cat" />
+            <TextField fx:id="nomFild" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="441.0" prefHeight="55.0" prefWidth="600.0">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#save" prefHeight="35.0" prefWidth="96.0" text="Save">
+               <HBox.margin>
+                  <Insets left="150.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#clean" prefHeight="35.0" prefWidth="106.0" text="Clean">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

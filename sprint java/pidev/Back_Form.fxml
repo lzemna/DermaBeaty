@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.Back_FormController">
+   <children>
+      <VBox layoutX="-1.0" prefHeight="800.0" prefWidth="362.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets left="80.0" top="50.0" />
+               </VBox.margin>
+               <image>
+                  <Image url="@../img/logoj.png" />
+               </image>
+            </ImageView>
+            <HBox prefHeight="61.0" prefWidth="340.0">
+               <children>
+                  <Label prefHeight="61.0" prefWidth="109.0" text="Derma" textFill="#fc5555">
+                     <font>
+                        <Font name="Cambria Bold" size="26.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label prefHeight="61.0" prefWidth="109.0" text="Beauty" textFill="#0a0a0a">
+                     <font>
+                        <Font name="Cambria Bold" size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onMousePressed="#goCommande" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="acceuil">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#refreshTable" prefHeight="53.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="formulaire">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#goConseil" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="conseils">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#goCategorie" prefHeight="55.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="categorie formualire">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gouser" prefHeight="53.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="utilisateurs">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#goderm" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="dermatologue">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#godermcat" prefHeight="55.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="categorie dermatologue">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="380.0" prefHeight="800.0" prefWidth="820.0">
+         <children>
+            <Label prefHeight="79.0" prefWidth="380.0" text="Formulaires" textFill="#1e1e27">
+               <font>
+                  <Font size="34.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="50.0" top="50.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="31.0" prefWidth="820.0">
+               <children>
+                  <Button mnemonicParsing="false" onMouseClicked="#ajoutForm" text="ajouter formulaire">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#export" text="export table to excel">
+                     <HBox.margin>
+                        <Insets left="525.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <TableView fx:id="FormulaireTable" prefHeight="367.0" prefWidth="820.0">
+              <columns>
+                <TableColumn fx:id="cin" prefWidth="75.0" text="CIN" />
+                <TableColumn fx:id="quest1" prefWidth="75.0" text="quest1" />
+                  <TableColumn fx:id="quest2" prefWidth="75.0" text="quest2" />
+                  <TableColumn fx:id="quest3" prefWidth="75.0" text="quest3" />
+                  <TableColumn fx:id="quest4" prefWidth="79.0" text="quest4" />
+                  <TableColumn fx:id="quest5" prefWidth="71.0" text="quest5" />
+                  <TableColumn fx:id="quest6" prefWidth="81.0" text="quest6" />
+                  <TableColumn fx:id="type" prefWidth="91.0" text="type" />
+                  <TableColumn fx:id="actionCol" prefWidth="197.0" text="actions" />
+              </columns>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

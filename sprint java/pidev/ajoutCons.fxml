@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.AjoutConsController">
+   <children>
+      <Label layoutX="10.0" layoutY="10.0" prefHeight="97.0" prefWidth="146.0" text="Conseil" textFill="#545454">
+         <font>
+            <Font name="Cambria Bold" size="24.0" />
+         </font>
+      </Label>
+      <HBox layoutX="42.0" layoutY="124.0" prefHeight="45.0" prefWidth="557.0">
+         <children>
+            <Label prefHeight="97.0" prefWidth="146.0" text="Reference :#" textFill="#545454">
+               <font>
+                  <Font name="Cambria Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="Reference" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+      <HBox layoutX="34.0" layoutY="215.0" prefHeight="23.0" prefWidth="549.0">
+         <children>
+            <Label prefHeight="97.0" prefWidth="146.0" text="Remarques :" textFill="#545454">
+               <font>
+                  <Font name="Cambria Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="Remarques" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+      <HBox layoutX="34.0" layoutY="293.0" prefHeight="30.0" prefWidth="549.0">
+         <children>
+            <Label prefHeight="97.0" prefWidth="146.0" text="date redaction" textFill="#545454">
+               <font>
+                  <Font name="Cambria Bold" size="24.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="date_red" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+      <HBox layoutX="32.0" layoutY="369.0" prefHeight="30.0" prefWidth="557.0">
+         <children>
+            <Label prefHeight="97.0" prefWidth="146.0" text="date limite" textFill="#545454">
+               <font>
+                  <Font name="Cambria Bold" size="24.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="date_limite" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+      <HBox layoutX="32.0" layoutY="445.0" prefHeight="30.0" prefWidth="557.0">
+         <children>
+            <Label prefHeight="97.0" prefWidth="146.0" text="nom dermatologue" textFill="#545454">
+               <font>
+                  <Font name="Cambria Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nom_derma" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+      <HBox layoutX="38.0" layoutY="537.0" prefHeight="45.0" prefWidth="557.0">
+         <children>
+            <Label prefHeight="97.0" prefWidth="146.0" text="email patient" textFill="#545454">
+               <font>
+                  <Font name="Cambria Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="email" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+      <Button layoutX="182.0" layoutY="674.0" mnemonicParsing="false" onMouseClicked="#save" prefHeight="79.0" prefWidth="187.0" text="ajouter" />
+   </children>
+</AnchorPane>

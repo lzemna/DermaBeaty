@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.CommadeController">
+   <children>
+      <VBox prefHeight="800.0" prefWidth="404.0" style="-fx-background-color: #ebe8f9;">
+         <children>
+            <ImageView fitHeight="122.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@150747832_761520978111248_5652594018623090496_n.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="130.0" top="50.0" />
+               </VBox.margin>
+            </ImageView>
+            <HBox prefHeight="54.0" prefWidth="404.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="356.0" text="BEATY" textFill="#1e1e27">
+                     <graphic>
+                        <Label prefHeight="30.0" prefWidth="200.0" text="DERMA" textFill="#fe4c50">
+                           <font>
+                              <Font name="Cambria Bold" size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets left="100.0" />
+                           </padding>
+                        </Label>
+                     </graphic>
+                     <font>
+                        <Font name="Cambria Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onMousePressed="#toCommandes" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9; -fx-border-color: #fffff; -fx-border-width: 0px;" text="acceuil">
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Desktop/fontAwesome%20icons/110912-font-awesome/png/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="100.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onMousePressed="#click" prefHeight="53.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="Annual best Sellers">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Desktop/fontAwesome%20icons/110912-font-awesome/png/female-silhouette.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onMousePressed="#goLivraison" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="livraisons">
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Desktop/fontAwesome%20icons/110912-font-awesome/png/archive-black-box.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onMousePressed="#goUser" prefHeight="55.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="users">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Desktop/fontAwesome%20icons/110912-font-awesome/png/align-justify.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="deconnection">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="44.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Desktop/fontAwesome%20icons/110912-font-awesome/png/sign-out-option.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <VBox fx:id="pageCommande" layoutX="403.0" layoutY="4.0" onMousePressed="#navigate" prefHeight="821.0" prefWidth="797.0">
+         <children>
+            <Label prefHeight="79.0" prefWidth="380.0" text="Les Commandes" textFill="#1e1e27">
+               <VBox.margin>
+                  <Insets left="50.0" top="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="82.0" prefWidth="747.0" spacing="40.0">
+               <children>
+                  <VBox prefHeight="80.0" prefWidth="199.0">
+                     <children>
+                        <Label fx:id="nbCommandeLabel" text="25000" textFill="#2a73ff">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="48.0" prefWidth="207.0" text="tous les commandes">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="80.0" prefWidth="198.0">
+                     <children>
+                        <Label fx:id="enAttenteLabel" prefHeight="36.0" prefWidth="283.0" text="22000" textFill="#26bfbc">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="44.0" prefWidth="290.0" text="en attente">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="61.0" prefWidth="123.0">
+                     <children>
+                        <Label fx:id="enCoursLabel" prefHeight="38.0" prefWidth="59.0" text="800" textFill="#be0000">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label text="en cours">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="82.0" prefWidth="253.0">
+                     <children>
+                        <Label text="chercher">
+                           <font>
+                              <Font name="Cambria Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="searchInput" onKeyPressed="#chercher" />
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="47.0" prefWidth="797.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="183.0" text="user">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="35.0" prefWidth="180.0" text="etat">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="35.0" prefWidth="174.0" text="prixtotal">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="35.0" prefWidth="191.0" text="date">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="21.0" prefWidth="221.0" text="actions">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </HBox>
+            <ScrollPane prefHeight="264.0" prefWidth="797.0">
+               <content>
+                  <VBox fx:id="tabCommande" prefHeight="257.0" prefWidth="772.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="pageStat" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="400.0">
+         <children>
+            <HBox prefHeight="57.0" prefWidth="783.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="400.0">
+               <children>
+                  <Label prefHeight="57.0" prefWidth="153.0" text="reference">
+                     <font>
+                        <Font name="Cambria Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="56.0" prefWidth="150.0" text="nom">
+                     <font>
+                        <Font name="Cambria Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="57.0" prefWidth="139.0" text="prix">
+                     <font>
+                        <Font name="Cambria Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="57.0" prefWidth="125.0" text="image">
+                     <font>
+                        <Font name="Cambria Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="58.0" prefWidth="217.0" text="actions">
+                     <font>
+                        <Font name="Cambria Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox prefHeight="389.0" prefWidth="800.0" style="-fx-background-color: #34495e;">
+               <children>
+                  <LineChart fx:id="lineStat">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </LineChart>
+               </children>
+            </VBox>
+            <VBox fx:id="tabProduit" layoutY="452.0" prefHeight="369.0" prefWidth="797.0" AnchorPane.topAnchor="452.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

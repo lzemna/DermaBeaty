@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.grandprodController">
+   <children>
+      <VBox prefHeight="800.0" prefWidth="282.0" style="-fx-background-color: #ebe8f9;">
+         <children>
+            <ImageView fitHeight="122.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logo.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="90.0" top="50.0" />
+               </VBox.margin>
+            </ImageView>
+            <HBox prefHeight="54.0" prefWidth="404.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="356.0" text="BEAUTY" textFill="#1e1e27">
+                     <graphic>
+                        <Label prefHeight="30.0" prefWidth="142.0" text="DERMA" textFill="#fe4c50">
+                           <font>
+                              <Font name="Cambria Bold" size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                        </Label>
+                     </graphic>
+                     <font>
+                        <Font name="Cambria Bold" size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gouser" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9; -fx-border-color: #fffff; -fx-border-width: 0px;" text="Gestion Utilisateur">
+               <font>
+                  <Font name="Cambria" size="22.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="100.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#goderm" prefHeight="53.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="Gestion Dermatologue">
+               <font>
+                  <Font name="Cambria" size="22.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#godermcat" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="Gestion Categorie Derm">
+               <font>
+                  <Font name="Cambria" size="22.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="Gestion Produits">
+               <font>
+                  <Font name="Cambria" size="22.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gocat" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="Gestion Categorie Prod">
+               <font>
+                  <Font name="Cambria" size="22.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="Gestion Commandes">
+               <font>
+                  <Font name="Cambria" size="22.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="Gestion Livraisons">
+               <font>
+                  <Font name="Cambria" size="22.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="TOP_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="406.0" style="-fx-background-color: #ebe8f9;" text="Gestion Centres">
+               <font>
+                  <Font name="Cambria" size="22.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="282.0" layoutY="1.0" prefHeight="793.0" prefWidth="919.0">
+         <children>
+            <Label prefHeight="79.0" prefWidth="380.0" text="Liste Des Produits" textFill="#1e1e27">
+               <VBox.margin>
+                  <Insets left="50.0" top="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Cambria Bold" size="34.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="134.0" prefWidth="919.0" style="-fx-background-color: #fe4c50;">
+               <VBox.margin>
+                  <Insets top="90.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="77.0" prefWidth="852.0" spacing="40.0">
+               <children>
+                  <VBox prefHeight="32.0" prefWidth="224.0">
+                     <children>
+                        <Button mnemonicParsing="false" onMouseClicked="#tri" prefHeight="31.0" prefWidth="69.0" style="-fx-background-color: #F9787C;" text="Tri">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></Button>
+                        <Button mnemonicParsing="false" onMouseClicked="#stat" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #F9787C;" text="Statistiques">
+                           <VBox.margin>
+                              <Insets left="120.0" top="-30.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="77.0" prefWidth="173.0">
+                     <children>
+                        <TextField fx:id="searchm" promptText="marque" />
+                     </children></VBox>
+                  <VBox prefHeight="82.0" prefWidth="253.0">
+                     <children>
+                        <TextField fx:id="searcht" promptText="nom">
+                           <VBox.margin>
+                              <Insets right="80.0" />
+                           </VBox.margin></TextField>
+                     </children>
+                  </VBox>
+                  <Button mnemonicParsing="false" onMouseClicked="#recherche" prefHeight="31.0" prefWidth="91.0" style="-fx-background-color: #F9787C;" text="rechercher">
+                     <HBox.margin>
+                        <Insets left="-80.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" top="120.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="47.0" prefWidth="797.0">
+               <children>
+                  <Label prefHeight="19.0" prefWidth="124.0" text="Référence">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="150.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label prefHeight="19.0" prefWidth="100.0" text="Nom">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="19.0" prefWidth="127.0" text="Type">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="19.0" prefWidth="124.0" text="Marque">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="19.0" prefWidth="82.0" text="Prix">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="19.0" prefWidth="88.0" text="Stock">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="19.0" prefWidth="184.0" text="Description" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="19.0" prefWidth="137.0" text="Catégorie">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="19.0" prefWidth="125.0" text="Action">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </HBox>
+            <ScrollPane>
+               <content>
+                  <VBox fx:id="tabprods" prefHeight="441.0" prefWidth="797.0" />
+               </content>
+            </ScrollPane>
+            <Button mnemonicParsing="false" onMouseClicked="#ajoutProd" prefHeight="31.0" prefWidth="108.0" style="-fx-background-color: #E7C51F;" text="Ajouter">
+               <VBox.margin>
+                  <Insets bottom="-30.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#refresh" prefHeight="31.0" prefWidth="108.0" style="-fx-background-color: #E7C51F;" text="Actualiser">
+               <VBox.margin>
+                  <Insets bottom="-40.0" left="200.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#categorie" prefHeight="31.0" prefWidth="172.0" style="-fx-background-color: #41A41B;" text="Liste des catégories">
+               <VBox.margin>
+                  <Insets bottom="30.0" left="700.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
